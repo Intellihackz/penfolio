@@ -46,6 +46,13 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+    const existingUserName = await User.findOne({ username });
+    if (existingUserName) {
+      return NextResponse.json(
+        { error: "UserName already taken" },
+        { status: 400 }
+      );
+    }
 
     // Create a new user
     let newUser;

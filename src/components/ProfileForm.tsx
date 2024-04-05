@@ -35,7 +35,7 @@ const ProfileForm = () => {
           username,
           clerk_id: user?.id,
           bio,
-          imageUrl: user?.profileImageUrl,
+          imageUrl: user?.imageUrl,
         }),
       });
       const data = await response.json();

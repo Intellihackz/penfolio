@@ -1,12 +1,12 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
 
-/**
- * User schema definition.
- *
- * Defines the schema for User documents in MongoDB.
- * Includes username, clerk_id, bio, and portfolios fields.
- * clerk_id must be unique.
- */
+interface IUser extends Document {
+  username: string;
+  clerk_id: string;
+  bio: string;
+  portfolios: mongoose.Types.ObjectId[];
+}
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -29,6 +29,6 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
-const User = mongoose.models.User || mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model<IUser>("User", userSchema);
 
 export default User;
