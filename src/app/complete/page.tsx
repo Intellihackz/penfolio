@@ -1,27 +1,25 @@
-// ManageWorksPage.tsx
 import Navbar from "@/components/UserNav";
-import WorksManagementSection from "@/components/WorksManagementSection";
+import ProfileForm from "@/components/ProfileForm";
 import { auth } from "@clerk/nextjs";
-import { checkProfileCompletion } from "@/lib/checkProfileCompletion";
 import { redirect } from "next/navigation";
+import { checkProfileCompletion } from "@/lib/checkProfileCompletion";
 
-export default async function ManageWorksPage() {
+export default async function CompletePage() {
   const { protect, userId } = auth();
-  protect({ redirectUrl: "/sign-in" });
+  protect({ redirectUrl: "/" });
   console.log(userId);
 
   const isProfileComplete = await checkProfileCompletion(userId!);
 
-  if (!isProfileComplete) {
+  if (isProfileComplete) {
     console.log(isProfileComplete);
 
-    redirect("/complete");
+    redirect("/");
   }
-
   return (
     <>
       <Navbar />
-      <WorksManagementSection />
+      <ProfileForm />
     </>
   );
 }
