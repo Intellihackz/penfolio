@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { default as mg } from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI || "";
 
@@ -8,6 +9,12 @@ if (!MONGODB_URI) {
   );
 }
 
+declare global {
+  var mongoose: {
+    conn: null | typeof mg;
+    promise: null | Promise<typeof mg>;
+  };
+}
 /**
  * Global is used here to maintain a cached connection across hot reloads
  * in development. This prevents connections growing exponentially
