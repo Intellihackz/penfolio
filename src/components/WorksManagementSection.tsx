@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@clerk/nextjs";
+import AddwritingBtn from "./ButtonAdd";
 
 interface Work {
   id: string;
@@ -135,7 +136,7 @@ const WorksManagementSection = () => {
         <div className="flex flex-col gap-4">
           <Dialog>
             <DialogTrigger>
-              <Button
+              {/* <Button
                 variant={"outline"}
                 className="group border border-primary/20 h-[190px] items-center justify-center flex flex-col hover:border-primary hover:cursor-pointer border-dashed gap-4"
               >
@@ -143,7 +144,10 @@ const WorksManagementSection = () => {
                 <p className="font-bold text-xl text-muted-foreground group-hover:text-primary">
                   Add a new Writing
                 </p>
-              </Button>
+              </Button> */}
+              <div className="p-10">
+                <AddwritingBtn />
+              </div>
             </DialogTrigger>
             <DialogContent>
               <form action="">
