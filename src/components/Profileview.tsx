@@ -1,11 +1,6 @@
-import User, { IUser } from "@/models/User";
 import WorkCard from "@/components/WorkCard";
 
-interface ProfileViewProps {
-  user: IUser;
-}
-
-const ProfileView = ({ user }: ProfileViewProps) => {
+const ProfileView = ({ user }: any) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
