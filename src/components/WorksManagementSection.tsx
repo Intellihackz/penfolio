@@ -18,7 +18,9 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@clerk/nextjs";
+import { Badge } from "@/components/ui/badge";
 import AddwritingBtn from "./ButtonAdd";
+import Link from "next/link";
 
 interface Work {
   id: string;
@@ -130,6 +132,11 @@ const WorksManagementSection = () => {
   return (
     <>
       <div className="flex flex-col p-10 gap-2 ">
+        <div className="justify-end items-end text-end margn">
+          <Badge className="px-3">
+            <Link href={"#"}>preview</Link>
+          </Badge>
+        </div>
         <h3 className="text-4xl font-bold mb-4 text-center items-center justify-center">
           Your Works
         </h3>
